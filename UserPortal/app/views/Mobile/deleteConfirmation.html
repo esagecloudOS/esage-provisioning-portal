@@ -1,0 +1,15 @@
+#{extends '/Mobile/layoutMobile.html' /} 
+<div data-role="page">
+	<div data-role="header" data-theme="a">
+		<h1>Delete?</h1>
+	</div>
+	<!-- /header -->
+	<div data-role="content" data-theme="a">
+		<h4>This offer costs $20 and includes selected vm.</h4>
+		<p>Your offer will be deleted after confirmation</p>
+		<a href="@@{Mobile.deleteOffer(purchasedOfferId)}" data-role="button"
+			data-theme="a" data-rel="dialog" data-transition="slideup">Delete
+			offer</a> <a href="@@{Mobile.index()}" data-role="button"
+			data-rel="back">No thanks</a>
+	</div>
+</div>

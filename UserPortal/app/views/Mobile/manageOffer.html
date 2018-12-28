@@ -1,0 +1,99 @@
+#{extends '/Mobile/layoutMobile.html' /} 
+<div data-role="page">
+
+	<div data-role="header">
+		<a href="@@{Mobile.admin()}" data-icon="home" data-iconpos="notext"
+			data-direction="reverse">Home</a> <a href="#" data-icon="back"
+			data-iconpos="notext" data-direction="reverse" data-rel="back">Back</a>
+		<h1>Abiquo Provisioning Portal</h1>
+	</div>
+	<!-- /header -->
+
+	<div data-role="content">
+		<ul data-role="listview" data-inset="true" data-theme="c"
+			data-divider-theme="a">
+			<li data-role="list-divider">
+				<h2>${vappFull?.virtualAppliance.name}</h2>
+				<p class="ui-li-aside">
+					<strong>State:</strong>${offerPurchased?.virtualApplianceState.name()}
+				</p>
+			</li>
+			<li><a href="#">
+				<div class="ui-li ui-li-has-alt">					
+					<div class="ui-btn-text" style="position:relative; padding-left: 1px;" >	
+					<img src="@@{Helper.displayIcon(offerPurchased?.offer.id)}" class="ui-li-thumb" style="position:relative;  padding-left: 10px;">	
+					<p>
+						<strong>Started on:</strong> ${offerPurchased?.start}
+					</p>
+					<p>
+						<strong>Expires on:</strong> ${offerPurchased?.start}
+					</p>
+					<p>
+						<strong>Description:</strong>
+						${offerPurchased?.offer.longDescription}
+					</p>
+					<p>
+						<strong>Price:</strong> ${offerPurchased?.offer.price}
+					</p>					
+					</div>
+				</div>
+					
+			</a> <a href="#" data-rel="dialog" data-transition="slideup">Purchase
+					offer</a></li>
+		</ul>
+		<ul data-role="listview" data-inset="true" data-filter="true"
+			data-filter-placeholder="Search vm..." data-filter-theme="a"
+			data-theme="c" data-divider-theme="a" data-split-icon="info">
+			<li data-role="list-divider">Virtual Machines</li> #{list
+			vappFull.listVirtualMachines, as:'vm'}
+			<li><a href="#">
+					<h3>${vm?.template_name}</h3>
+					<p>
+						<strong>CPU:</strong> ${vm?.virtualMachine.cpu}
+					</p>
+					<p>
+						<strong>RAM:</strong> ${vm?.virtualMachine.ram} MB
+					</p>
+					<p>
+						<strong>Description:</strong> ${vm?.virtualMachine.description}
+					</p>
+					<p class="ui-li-aside">
+						<strong>State:</strong>${vm?.virtualMachine.state}
+					</p>
+			</a> <a
+				href="@@{Mobile.vncConnection(vm?.virtualMachine.vncAddress,vm?.virtualMachine.vncPort,vm?.virtualMachine.password)}"
+				data-prefetch>Purchase offer</a></li> #{/list}
+		</ul>
+		<div class="ui-grid-b">
+			<div class="ui-block-a">
+				<a href="@@{Mobile.confirmation(offerPurchasedId, 'reset')}"
+				data-role="button" data-icon="refresh" data-theme="b"
+				data-transition="slideup" data-rel="dialog">Reset</a>
+			</div>			
+			<div class="ui-block-b">
+				<a href="#" data-role="button" data-icon="plus" data-theme="a"
+				data-rel="dialog" data-transition="slideup" data-rel="dialog">Upgrade</a>
+			</div>
+			<div class="ui-block-c">
+				<a href="@@{Mobile.confirmation(offerPurchasedId, 'delete')}"
+				data-role="button" data-icon="delete" data-theme="d"
+				data-transition="slideup" data-rel="dialog">Delete</a> 				
+			</div>	
+		</div>
+	</div>
+	<!--/content-primary -->
+	<div class="content-secondary">
+
+		<div data-role="collapsible" data-collapsed="true" data-theme="b"
+			data-content-theme="b">
+
+			<h3>Help</h3>
+			<ul data-role="listview" data-theme="a" data-dividertheme="a">
+
+				<li data-role="list-divider">Sections</li>
+				<li><a href="#">About</a></li>
+
+			</ul>
+		</div>
+	</div>
+</div>

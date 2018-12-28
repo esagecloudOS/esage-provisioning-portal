@@ -1,0 +1,13 @@
+#{extends '/Mobile/layoutMobile.html' /} 
+<div data-role="page">
+	<div data-role="header" data-theme="a">
+		<h1>Success!</h1>
+	</div>
+	<!-- /header -->
+	<div data-role="content" data-theme="a">
+		<h4>${header}</h4>
+		<p>${descriprion}</p>
+		<a href="${actionHref}" data-role="button" data-theme="a"
+			data-rel="dialog" data-transition="slideup">${actionMessage}</a>
+	</div>
+</div>

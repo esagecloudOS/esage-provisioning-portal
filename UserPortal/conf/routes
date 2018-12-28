@@ -1,0 +1,104 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                   	Login.login_agent
+GET     /index                                  Login.login_page
+GET 	/login/connect							Login.connect
+POST	/login/connect							Login.connect
+GET 	/login/logout					    	Login.logout
+POST	/register								Login.register
+
+GET     /mobile                                 Mobile.login
+GET     /mobile/logout                          Mobile.logout
+GET     /mobile/connect                         Mobile.connect
+POST    /mobile/connect                         Mobile.connect
+GET     /mobile/index                           Mobile.index
+GET     /mobile/admin	                        Mobile.admin	
+GET     /mobile/listActiveOffers                Mobile.listActiveOffers
+GET     /mobile/listInactiveOffers              Mobile.listInactiveOffers
+GET     /mobile/listalloffers                   Mobile.listAllOffers
+GET     /mobile/listvm                          Mobile.listVM
+GET     /mobile/details                         Mobile.details
+GET     /mobile/deploy                          Mobile.deploy
+GET     /mobile/resetOffer                      Mobile.resetOffer
+GET     /mobile/deleteOffer                     Mobile.deleteOffer
+GET     /mobile/confirmation             		Mobile.confirmation
+GET     /mobile/purchaseConfirmation            Mobile.purchaseConfirmation
+GET     /mobile/resetConfirmation               Mobile.resetConfirmation
+GET     /mobile/deleteConfirmation              Mobile.deleteConfirmation
+GET     /mobile/upgradeConfirmation             Mobile.upgradeConfirmation 
+GET     /mobile/listOffersToPurchase            Mobile.listOffersToPurchase
+GET     /mobile/listOffersPurchased             Mobile.listOffersPurchased
+GET     /mobile/manageOffer             		Mobile.manageOffer
+GET 	/mobile/vnc							    Mobile.vncConnection
+GET 	/mobile/layervnc					    Mobile.vncLayer
+
+
+
+GET 	/ProducerRemote/configure					ProducerRemote.configure
+GET 	/ProducerLocal/admin						ProducerLocal.admin
+
+GET 	/Producer/poe								Producer.poe
+GET 	/Producer/listAllOffers						Producer.listAllOffers
+POST 	/Producer/poe								Producer.poe
+
+GET 	/ProducerRemote/listvdc						ProducerRemote.listVDC
+POST 	/ProducerRemote/listvdc						ProducerRemote.listVDC
+GET		/ProducerRemote/vmDetails					ProducerRemote.vmDetails
+GET 	/ProducerRemote/listvm					    ProducerRemote.listVM
+GET 	/ProducerRemote/listva					    ProducerRemote.listVA
+POST 	/ProducerRemote/addtoservicecatalog			ProducerRemote.addToServiceCatalog
+
+
+GET 	/ProducerLocal/configureExistingOffer		ProducerLocal.configureExistingOffer
+GET 	/ProducerLocal/displayOffer 				ProducerLocal.displayOffer 
+POST 	/ProducerLocal/saveConfigure				ProducerLocal.saveConfigure 
+GET     /ProducerLocal/subscribedOffers				ProducerLocal.subscribedOffers
+POST    /ProducerLocal/subscribedOffers				ProducerLocal.subscribedOffers
+GET     /ProducerLocal/disableOffer					ProducerLocal.disableOffer
+
+GET 	/MarketEnable/publishOffersPerMarket 		MarketEnable.publishOffersPerMarket
+GET     /MarketEnable/marketEnable					MarketEnable.marketEnable
+POST    /MarketEnable/marketEnable					MarketEnable.marketEnable
+GET     /MarketEnable/enable						MarketEnable.Enable
+GET     /MarketEnable/saveMKTConfiguration			MarketEnable.saveMKTConfiguration
+GET     /MarketEnable/enableMKTConfiguration        MarketEnable.enableMKTConfiguration
+GET     /MarketEnable/publishMarket					MarketEnable.publishMarket
+POST    /MarketEnable/saveMarketView				MarketEnable.saveMarketView
+
+GET 	/consumer/availableoffers				Consumer.availableOffers
+GET 	/consumer/availableoffersAll			Consumer.availableOffersAll
+GET     /consumer/purchasedOffers               Consumer.purchasedOffers
+GET 	/consumer/servicecatalog				Consumer.ServiceCatalog
+GET 	/consumer/offerdetails					Consumer.offerDetails
+GET 	/consumer/offerdetailspurchased 		Consumer.offerDetailsPurchased
+GET 	/consumer/vnc							Consumer.vncConnection
+GET 	/consumer/purchaseconfirmation			Consumer.purchaseConfirmation
+GET 	/consumer/deploy					    Consumer.deploy
+GET 	/consumer/undeploy					    Consumer.undeploy
+GET 	/consumer/deleteOffer					Consumer.deleteOffer
+GET 	/consumer/resumeOffer					Consumer.resumeOffer
+GET 	/consumer/resetOffer					Consumer.resetOffer
+GET 	/consumer/extendOffer					Consumer.extendOffer
+GET 	/consumer/extendOfferModal				Consumer.extendOfferModal
+GET 	/consumer/expiredOffer					Consumer.expiredOffer
+GET 	/consumer/extend    					Consumer.extend
+GET 	/helper/displayIcon						Helper.displayIcon
+GET 	/helper/displayIconName				    Helper.displayIconName
+GET 	/helper/displayImage 					Helper.displayImage
+GET 	/consumer/displayIcon					Helper.displayIcon
+ 
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+
+#*       /{controller}/{action}                  {controller}.{action}
+# Import CRUD routes
+#*     /admin           module:crud
+#*		/mkt_configurations module:crud

@@ -1,0 +1,35 @@
+#{extends '/Mails/sendEmailWrapper.html' /} 
+<layout label="Text only">
+<title>Cloud Services Confirmation</title>
+    <table class="w580" width="580" cellpadding="0" cellspacing="0" border="0">
+        <tbody><tr>
+            <td class="w580" width="580">
+                <p align="left" class="article-title"><singleline label="Title">Your CloudApp has been deployed successfully</singleline></p>
+                <div align="left" class="article-content">
+                    <multiline label="Description">Please review the order information below. For assistance contact your cloud administrator
+                    	<p>User:  <b>${op.user.nick}</b></p>
+						<p>Email:  <b>${op.user.email}</b></p>
+						<p>Offer name: <b>${op.offer.name} </b></p>
+						<p>Offer starting date: <b>${op.start} </b></p>
+						<p>Offer expiration date: <b>${op.expiration} </b></p>											
+						<p><b>List of virtual machines deployed:</b><p>
+						#{list vms, as:'vm'}
+						<b>Virtual machine name: ${vm.nameLabel} </b><br />
+						<b>Cpu's: ${vm.cpu} </b><br />
+						<b>Ram: ${vm.ram} MB</b><br />
+						<b>Description: ${vm.description} </b><br />	
+						<p>This virtual machine can be accessed using VNC at the following location<p>
+						<b> Address: ${vm.vncAddress} </b><br / >
+						<b> Port: ${vm.vncPort} </b> <br / >
+						<b> Password: ${vm.password} </b><br / >
+						#{/list}
+						<p>You can use any VNC utility to access the Virtual Machine and enter above details<p>
+						<p>TightVNC can be downloaded from http://www.tightvnc.com/download.php<p>
+						<p>UltraVNC can be downloaded from http://www.uvnc.com/downloads/ultravnc.html<p>
+                    </multiline>
+                </div>
+            </td>
+        </tr>
+        <tr><td class="w580" width="580" height="10"></td></tr>
+    </tbody></table>
+</layout>

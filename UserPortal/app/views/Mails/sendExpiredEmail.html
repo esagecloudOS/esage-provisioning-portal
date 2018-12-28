@@ -1,0 +1,21 @@
+#{extends '/Mails/sendEmailWrapper.html' /} 
+<layout label="Text only">
+<title>Cloud Services Confirmation</title>
+    <table class="w580" width="580" cellpadding="0" cellspacing="0" border="0">
+        <tbody><tr>
+            <td class="w580" width="580">
+                <p align="left" class="article-title"><singleline label="Title">Your CloudApp has been expired<singleline></p>
+                <div align="left" class="article-content">
+                    <multiline label="Description">Please review the order information below. For assistance contact your cloud administrator
+                    	<p>User:  <b>${op.user.nick}</b></p>
+						<p>Email:  <b>${op.user.email}</b></p>
+						<p>Offer name: <b>${op.offer.name} </b></p>
+						<p>Offer started date: <b>${op.start} </b></p>
+						<p>Offer expiration date: <b>${op.expiration} </b></p>
+                    </multiline>
+                </div>
+            </td>
+        </tr>
+        <tr><td class="w580" width="580" height="10"></td></tr>
+    </tbody></table>
+</layout>

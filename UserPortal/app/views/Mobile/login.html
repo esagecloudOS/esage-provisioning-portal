@@ -1,0 +1,38 @@
+#{extends '/Mobile/layoutMobile.html' /} 
+
+<div data-role="page">
+	<div data-role="header">
+		<h1>Login</h1>
+	</div>
+	<!-- /header -->
+
+	<!-- start content -->
+	<div data-role="content" data-inset="true">
+		<form id="loginFormCenter" action="@@{Mobile.connect()}"
+			method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+			<fieldset>
+				<div class="img">
+					<img src="http://www.hpswebcms.co.uk/abiquo/files/2012/10/Abiquo-Master-Logo1-e1351268860181.png" />
+					Marketplace
+				</div>
+				<div class="clearfix">
+					<input type="text" name="username" id="usernamne"
+						placeholder="Username">
+				</div>
+				<div class="clearfix">
+					<input type="password" name="password" id="password"
+						placeholder="Password">
+				</div>
+				<button data-role="button" data-theme="a">Sign in</button>
+				<button data-role="button" data-theme="b">Register</button>
+				#{if flash.error} <br />
+				<br />
+				<h4>
+					<i class="icon-exclamation-sign"></i> ${flash.error}
+				</h4>
+				#{/if}
+			</fieldset>
+		</form>
+	</div>
+	<!-- end content -->
+</div>

@@ -1,0 +1,15 @@
+#{extends '/Mobile/layoutMobile.html' /} 
+<div data-role="page">
+	<div data-role="header" data-theme="a">
+		<h1>Thank you!</h1>
+	</div>
+	<!-- /header -->
+	<div data-role="content" data-theme="a">
+		<h4>Offer has been successfully ${action}.</h4>
+		<p>An email will be send with more detailed information.</p>
+		<a href="@@{Mobile.listOffersPurchased()}" data-role="button"
+			data-theme="a">Go to Purchased Offers</a> <a
+			href="@@{Mobile.listOffersToPurchase()}" data-role="button">Return
+			to Marketplace</a>
+	</div>
+</div>

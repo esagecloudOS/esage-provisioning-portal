@@ -1,0 +1,45 @@
+<!-------------------------------------------------------------------------------
+# Abiquo community edition
+# cloud management application for hybrid clouds
+#  Copyright (C) 2008-2010 - Abiquo Holdings S.L.
+# 
+#  This application is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU LESSER GENERAL PUBLIC
+#  LICENSE as published by the Free Software Foundation under
+#  version 3 of the License
+# 
+#  This software is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#  LESSER GENERAL PUBLIC LICENSE v.3 for more details.
+# 
+#  You should have received a copy of the GNU Lesser General Public
+#  License along with this library; if not, write to the
+#  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+#  Boston, MA 02111-1307, USA.
+#------------------------------------------------------------------------------->
+<div class="ui-widget">
+	<table
+		class="table table-bordered table-condensed table-striped middle">
+		<thead class="ui-widget-header">
+			<tr>
+				<td width="200px"><strong><center>${template_name}</center></strong></td>
+				<td width="200px"><strong><center>CPU</center></strong></td>
+				<td width="200px"><strong><center>RAM</center></strong></td>
+				<td width="200px"><strong><center>HD</center></strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><center>
+						<img src="@{'/public/images/user/1341575776_Yellow_Server.png'}"
+							width="100">
+					</center></td>
+				<td><strong><center>${cpu}</center></strong></td>
+				<td><strong><center>${ram} MBytes</center></strong></td>
+				<td><strong><center>${hd} MBytes</center></strong></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<!-- <a href="@{Producer.poe()}"> Home  </a> <br /> -->

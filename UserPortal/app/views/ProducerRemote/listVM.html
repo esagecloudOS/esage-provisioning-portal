@@ -1,0 +1,131 @@
+<!-------------------------------------------------------------------------------
+# Abiquo community edition
+# cloud management application for hybrid clouds
+#  Copyright (C) 2008-2010 - Abiquo Holdings S.L.
+# 
+#  This application is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU LESSER GENERAL PUBLIC
+#  LICENSE as published by the Free Software Foundation under
+#  version 3 of the License
+# 
+#  This software is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#  LESSER GENERAL PUBLIC LICENSE v.3 for more details.
+# 
+#  You should have received a copy of the GNU Lesser General Public
+#  License along with this library; if not, write to the
+#  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+#  Boston, MA 02111-1307, USA.
+#----------------------------------------------------------------------------- -->
+#{ifnot virtualAppliance}
+<h3>No Service Offers !!!</h3>
+#{/ifnot} #{else}
+<table class="table table-bordered table-condensed table-striped">
+	<thead class="ui-widget-header">
+		<tr>
+			<td><strong><center>
+						${virtualAppliance.name}
+						<center></strong></td>
+			<td width="100px"><strong><center>Details</center></strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		#{list offers, as:'offer'}
+		<tr>
+			<td><center>
+					<img src="@{Helper.displayIcon(offer.id)}" width="100">
+				</center></td>
+			<td>
+				<table class="table table-striped table-bordered table-condensed">
+					<tbody>
+						<tr>
+							<td width="200px"><strong><center>
+										Short-Description
+										<center></strong></td>
+							<td><center>${offer.shortDescription}</center></td>
+						</tr>
+						<tr>
+							<td width="200px"><strong><center>
+										Description
+										<center></strong></td>
+							<td><center>${offer.longDescription}</center></td>
+						</tr>
+						<tr>
+							<td width="200px"><strong><center>
+										Quality of Service
+										<center></strong></td>
+							<td><center>${virtualDatacenter.name}</center></td>
+						</tr>
+						<tr>
+							<td width="200px"><strong><center>
+										Lease Period
+										<center></strong></td>
+							<td><center>${offer.serviceType}</center></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		#{/list} #{else}
+		<tr>
+			<td><center>
+					<img src="@{'/public/images/user/server_off.png'}" width="100">
+				</center></td>
+			<td>
+				<table class="table table-striped table-bordered table-condensed">
+					<tbody>
+						<tr>
+							<td width="200px"><strong><center>
+										Short-Description
+										<center></strong></td>
+							<td><center>not defined</center></td>
+						</tr>
+						<tr>
+							<td width="200px"><strong><center>
+										Description
+										<center></strong></td>
+							<td><center>not defined</center></td>
+						</tr>
+						<tr>
+							<td width="200px"><strong><center>
+										Quality of Service
+										<center></strong></td>
+							<td><center>${virtualDatacenter.name}</center></td>
+						</tr>
+						<tr>
+							<td width="200px"><strong><center>
+										Lease Period
+										<center></strong></td>
+							<td><center>not defined</center></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		#{/else}
+	</tbody>
+	<tfoot class="ui-widget-header">
+		<tr>
+			<td width="100px"><strong><center>
+						Price
+						<center></strong></td>
+			<td><strong><center>${price}</center></strong></td>
+		</tr>
+	</tfoot>
+</table>
+#{list vmList, as:'vm'}
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<div
+					id="@{ProducerRemote.vmDetails(virtualDatacenter.id,virtualAppliance.id, vm.id)}"
+					class="vmDetails"></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+#{/list} #{/else}
+<!-- <p> <a href="@{ProducerLocal.admin()}"> Home  </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="@{Producer.poe()}">  Back </a> </p> -->

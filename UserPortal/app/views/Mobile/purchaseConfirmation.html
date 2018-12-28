@@ -1,0 +1,18 @@
+#{extends '/Mobile/layoutMobile.html' /} 
+<div data-role="page">
+
+	<div data-role="header" data-theme="a">
+		<h1>Purchase?</h1>
+	</div>
+	<!-- /header -->
+	<div data-role="content" data-theme="a">
+		<h4>This offer costs $20 and includes selected vm.</h4>
+		<p>Your offer will be deployed once you confirm your purchase</p>
+		<a
+			href="@@{Mobile.deploy(offer.datacenter, offer.virtualDatacenter, offer.id, offer.name, offer.defaultLeasePeriod)}"
+			data-role="button" data-theme="b" data-rel="dialog"
+			data-transition="slideup">Purchase offer</a> <a
+			href="@@{Mobile.index()}" data-role="button" data-rel="back" data-theme="a">No
+			thanks</a>
+	</div>
+</div>
